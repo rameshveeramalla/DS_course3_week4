@@ -50,4 +50,4 @@ X_Y_Subject_merged_filtered = merge(X_Y_Subject_merged_filtered, activity_labels
 final_tidy_data <- data.frame(X_Y_Subject_merged_filtered %>% group_by(SubjectID, ActivityName) %>% summarise_all(funs(mean)))
 
 ## write the tidy data set to a file
-write.table(final_tidy_data, row.name=FALSE)
+write.table(final_tidy_data, file="final_tidy_data.txt", row.name=FALSE)
