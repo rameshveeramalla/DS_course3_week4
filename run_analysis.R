@@ -1,4 +1,4 @@
- 
+ library(dplyr) 
  
  ## Set the working directory to the location where I downloaded UCI HAR Dataset
  
@@ -47,4 +47,4 @@
 X_Y_Subject_merged_filtered = merge(X_Y_Subject_merged_filtered, activity_labels, by.x="ActivityID", sort=F)
 
 ## to create the final tidy dataset, first group by the SubjectID and Activity ID as specified in step 5, and summarise all rows for mean 
-final_tidy_data <- data.frame(X_Y_Subject_merged_filtered %>% group_by(SubjectID, ActivityID) %>% summarise_all(funs(mean)))
+final_tidy_data <- data.frame(X_Y_Subject_merged_filtered %>% group_by(SubjectID, ActivityName) %>% summarise_all(funs(mean)))
